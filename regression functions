@@ -1,0 +1,128 @@
+import random
+import sys
+import math
+
+
+
+
+def BOD(userVal):
+    Qval=0;
+    Qval=97.99742145 * pow(.90138523,userVal);
+
+    return Qval;
+
+
+def DissolvedO2(userVal):
+    Qval=0;
+    Qval=( 
+    ((7.5487 * pow(10,-7)) * pow(userVal,4)) 
+    + ((-3.469409 * pow(10,-4)) * pow(userVal,3)) 
+    + ((.040307) * pow(userVal,2))
+    +(-.40892345 * userVal)
+    +(4.59723) ) ;
+
+    return Qval;
+
+
+def FecalColiform(userVal):
+    Qval=0;
+    Qval=(130.662201 * pow(userVal, -.2710369));
+    return Qval;
+
+def Nitrate(userVal):
+    Qval=0;
+    if(userVal<=10):
+        Qval=((-60 * userVal)+100);
+    else:
+        Qval=(79.56047 * pow(.9632,userVal));
+    
+    return Qval;
+
+
+def PH(userVal):
+    Qval=0;
+    if(userVal <= 7.486725):
+        Qval=(
+        ((-.48107) * pow(userVal,4)) 
+        + ((8.55765) * pow(userVal,3)) 
+        + ((-49.79321) * pow(userVal,2))
+        +(121.5186 * userVal)
+        +(-104.61758)   
+        )
+    else:
+        Qval=(
+        ((-1.19277) * pow(userVal,4)) 
+        + ((47.4707) * pow(userVal,3)) 
+        + ((-697.79441) * pow(userVal,2))
+        +(4465.56149 * userVal)
+        +(-10400.236)    
+        )
+    return Qval;
+
+
+def Temp(userVal):
+    Qval=0;
+    if(userVal<=0):
+        Qval=((3.8 * userVal) + 93);
+    else:
+        Qval=(
+        ((-5.804 * pow(10,-4)) * pow(userVal,4)) 
+        + ((.03353) * pow(userVal,3)) 
+        + ((-.493065) * pow(userVal,2))
+        +(-2.55718 * userVal)
+        +(93.27195)
+        )
+    return Qval;
+
+
+def DissolvedSolids(userVal):
+    Qval=0;
+    Qval=(
+        ((-4.372 * pow(10,-9)) * pow(userVal,4)) 
+        + ((5.0328 * pow(10,-6)) * pow(userVal,3)) 
+        + ((-2.031 * pow(10,-3)) * pow(userVal,2))
+        +(.204644 * userVal)
+        +(79.85455) 
+        )
+    return Qval;
+
+
+
+def Phosphate(userVal):
+    Qval=0;
+    if (userVal<=1):
+        Qval=((-60 * userVal) + 100);
+    else:
+        Qval=(
+        ((.01754103) * pow(userVal,4)) 
+        + ((-.44502) * pow(userVal,3)) 
+        + ((4.3512) * pow(userVal,2))
+        +(-21.72 * userVal)
+        +(57.4007)
+        )
+    return Qval;
+
+
+def Turbidity(userVal):
+    Qval=0;
+    Qval=(
+        ((1.465 * pow(10,-6)) * pow(userVal,4)) 
+        + ((-4.04 * pow(10,-4)) * pow(userVal,3)) 
+        + ((.042296) * pow(userVal,2))
+        +(-2.457 * userVal)
+        +(97.4311) 
+        )
+    return Qval;
+
+
+hi=100;
+print(DissolvedO2(hi));
+print(Nitrate(40));
+print(FecalColiform(500))
+print(PH(6));
+print(Temp(15));
+print(DissolvedSolids(400));
+print(Phosphate(5));
+print(Turbidity(80));
+
+sys.exit()
